@@ -11,9 +11,8 @@ See [grunt-notify](https://github.com/dylang/grunt-notify) for the list of suppo
 
 ## Installing
 
-```javascript
-npm install grunt-typescript-notify --save-dev
-```
+Clone and link into your project (will be published to __npm__ at a later date).
+
 
 Once installed, enable it in your `Gruntfile.js`:
 
