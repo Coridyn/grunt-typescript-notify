@@ -21,18 +21,31 @@ module.exports = function(grunt){
 	};
 	
 	
-	grunt.event.on('grunt-typescript', function(e){
-		var notifyKey = 'success',
-			overrides = grunt.config('typescript-notify.options') || {};
-		if (!e.success){
-			notifyKey = 'failed';
-		}
+	grunt.registerMultiTask('typescript-notify', function(){
 		
-		// Merge the notification configuration together.
-		// `overrides` take precence (as expected).
-		var options = util.extend({}, defaults[notifyKey], overrides[notifyKey]);
+		// Merge the notification configuration together
+		// using the standard multitask merge behaviour.
+		var taskOptions = this.options();
 		
-		// Send the growl notification.
-		notify(options);
+		grunt.event.on('grunt-typescript', function(e){
+			
+			var notifyKey = 'success';
+			if (!e.success){
+				notifyKey = 'failed';
+			}
+			
+			var options = util.extend({}, defaults[notifyKey], taskOptions[notifyKey]);
+			
+			// On Windows double-escape the backslashes so the image path works.
+			if (_path.sep == '\\'){
+				options.image = options.image.replace(/\\/g, '\\\\');
+			}
+			console.log('!options=%j', options);
+			
+			// Send the growl notification.
+			notify(options);
+		});
+		
 	});
+	
 };
