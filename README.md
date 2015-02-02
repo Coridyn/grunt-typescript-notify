@@ -11,7 +11,22 @@ See [grunt-notify](https://github.com/dylang/grunt-notify) for the list of suppo
 
 ## Installing
 
-Clone and link into your project (will be published to __npm__ at a later date).
+```bash
+$ npm install grunt-typescript-notify --save-dev
+```
+
+
+NOTE: `grunt-typescript-notify` currently needs a pre-release version of `grunt-typescript` to work properly:
+
+```javascript
+// package.json
+{
+	"dependencies": {
+		"grunt-typescript": "git://github.com/Coridyn/grunt-typescript#feat/grunt-raise-success-event"
+		// ...
+	}
+}
+```
 
 
 Once installed, enable it in your `Gruntfile.js`:
@@ -19,6 +34,7 @@ Once installed, enable it in your `Gruntfile.js`:
 ```javascript
 grunt.loadNpmTasks('grunt-typescript-notify');
 ```
+
 
 
 ## Options
