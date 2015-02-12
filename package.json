@@ -1,6 +1,6 @@
 {
   "name": "grunt-typescript-notify",
-  "version": "1.0.2-SNAPSHOT",
+  "version": "1.1.0",
   "description": "Growl notifications for `grunt-typescript` build status",
   "main": "index.js",
   "repository": {
