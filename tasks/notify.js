@@ -40,7 +40,7 @@ module.exports = function(grunt){
 			if (_path.sep == '\\'){
 				options.image = options.image.replace(/\\/g, '\\\\');
 			}
-			console.log('!options=%j', options);
+			// console.log('!options=%j', options);
 			
 			// Send the growl notification.
 			notify(options);
